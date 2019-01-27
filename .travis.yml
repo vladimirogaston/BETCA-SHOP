@@ -22,3 +22,4 @@ deploy: # https://template-spring5.herokuapp.com/v2/api-docs
   provider: heroku
   api_key:
     secure: $HEROKU
+
