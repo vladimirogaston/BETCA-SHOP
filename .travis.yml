@@ -17,10 +17,10 @@ script:
 # Subir a sonarcloud
 - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR
 # Desplegar en Heroku
+- mvn -Dspring.profiles.active=production package
 deploy:
+  script: mvn -Dspring.profiles.active=production -DskipTests package
   provider: heroku
   api_key:
     secure: $HEROKU
-  app: template-spring5
-  on:
-    repo: miw-upm/template-spring5
+#  app: template-spring5
