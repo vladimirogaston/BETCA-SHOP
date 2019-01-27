@@ -21,5 +21,14 @@ class TestsResourceIT {
                 .path(TestsResource.TESTS).get().build().length() > 0);
     }
 
+    @Test
+    void testCreateAndReadAll() {
+        new RestBuilder<>(port).path(TestsResource.TESTS).path(TestsResource.ONES).body(new OneDto("1"))
+                .post().build();
+        new RestBuilder<>(port).path(TestsResource.TESTS).path(TestsResource.ONES).body(new OneDto("2"))
+                .post().build();
+        assertTrue(new RestBuilder<One[]>(port).clazz(One[].class)
+                .path(TestsResource.TESTS).path(TestsResource.ONES).get().build().length > 1);
+    }
 
 }
