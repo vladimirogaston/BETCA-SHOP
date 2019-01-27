@@ -10,6 +10,7 @@ notifications:
     recipients:
     - j.bernal@upm.es
 #Test unitario y de integracion en develop
+script:
 - mvn verify
 - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
 - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR
