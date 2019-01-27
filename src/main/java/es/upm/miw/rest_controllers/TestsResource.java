@@ -18,8 +18,8 @@ public class TestsResource {
     @Autowired
     private OneRepository oneRepository;
 
-    @Value("${spring.data.mongodb.uri}")
-    private String db = null;
+    @Value("${spring.data.mongodb.uri:#{null}}")
+    private String db;
 
     @GetMapping
     public String read() {
