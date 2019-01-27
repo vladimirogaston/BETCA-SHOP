@@ -9,8 +9,18 @@ notifications:
   email:
     recipients:
     - j.bernal@upm.es
-#Test unitario y de integracion en develop
+# Test unitario y de integracion en develop
 script:
 - mvn verify
+# Test para covertura en sonar
 - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
+# Subir a sonarcloud
 - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR
+# Desplegar en Heroku
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU
+  app: template-spring5
+  on:
+    repo: miw-upm/template-spring5
