@@ -18,7 +18,7 @@ public class TestsResource {
     @Autowired
     private OneRepository oneRepository;
 
-    @Value("${spring.data.mongodb.database}")
+    @Value("${spring.data.mongodb.uri}")
     private String db = null;
 
     @GetMapping
