@@ -66,7 +66,6 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
         </dependency>
-
         <!-- ================ TEST ================== -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

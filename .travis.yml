@@ -17,13 +17,12 @@ script:
 # Subir a sonarcloud
 - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR
 
-# Desplegar en Heroku
-deploy: # https://template-spring5.herokuapp.com/v2/api-docs
+# https://template-spring5.herokuapp.com/swagger-ui.html
+deploy:
   provider: heroku
   api_key:
     secure: $HEROKU
-#  app: template-spring5
-#  on:
-#    repo: miw-upm/template-spring5
-#    branch: master
-
+# app: template-spring5
+# on:
+#   repo: miw-upm/template-spring5
+#   branch: master

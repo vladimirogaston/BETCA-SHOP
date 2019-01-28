@@ -57,7 +57,7 @@
    - Obtener el *ApiKey* de *Sonarcloud*
       - `>My Account>Security`
    - Definir una variable de entorno: *SONAR-ApiKey* asociada al proyecto en *Travis-CI*
-      - `More options>Settings>Environment Variables`
+      - `>More options>Settings>Environment Variables`
    - Configurar *.travis.yml* con la conexión de *Sonar*
       - `- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=<organization> -Dsonar.login=$SONAR`
    - Realizar *push* en *develop* y comprobar que se dispara *Sonar* adecuadamente
@@ -73,7 +73,7 @@
    - Obtener el *ApiKey* de *Heroku*
       - `>Account settings>API Key`
    - Crear una variable de entorno: *HEROKU-ApiKey* asociada al proyecto en *Travis-CI*
-      - `More options>Settings>Environment Variables`
+      - `>More options>Settings>Environment Variables`
    - Configurar .travis.yml con el despliegue en Heroku
       -`deploy:`
          -`provider: heroku`
