@@ -28,8 +28,6 @@
         <maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
         <junit.platform.version>1.2.0</junit.platform.version>
 		<!-- various -->
-        <itextpdf.version>7.0.2</itextpdf.version>
-		<jwt.version>3.4.1</jwt.version>
         <swagger.version>2.9.2</swagger.version>
 
     </properties>
@@ -57,33 +55,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
-        <!-- YAML Parser ================================== -->
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-        </dependency>
-        <!-- JWT ========================================== -->
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>${jwt.version}</version>
-        </dependency>
-        <!-- IText PDF ==================================== -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-            <version>${itextpdf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-            <version>${itextpdf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>barcodes</artifactId>
-            <version>${itextpdf.version}</version>
-        </dependency>
         <!-- Swagger ====================================== -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -110,11 +81,6 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
