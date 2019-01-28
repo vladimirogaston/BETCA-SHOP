@@ -39,8 +39,8 @@
        - `>git add --all`
        - `>git commit -m "Initial template-spring5"`  
        - `>git checkout –b develop`
-1. Conectar con GitHub <https://github.com>
-   - Crear el repositorio remoto en *Github*
+1. Conectar con GitHub 
+   - Crear el repositorio remoto en *Github* <https://github.com>
    - Conectarlo con repositorio local
        - `>git remote add origin <url-repository>`
        - `>git push --all`
@@ -50,7 +50,7 @@
    - Activa el seguimiento del repositorio de *GitHub*
       - `>My Account>Settings`
    - Configurar el fichero *.travis.yml*
-   - Realizar *Push* de la rama *develop* y comprobar que se ejecuta *Travis-CI*
+   - Realizar *push* de la rama *develop* y comprobar que se ejecuta *Travis-CI*
       - `>git push origin develop`
 1. Conectar con Sonarcloud
    - Crear una cuenta en *Sonarcloud* <https://sonarcloud.io>
@@ -59,14 +59,14 @@
    - Definir una variable de entorno: *SONAR-ApiKey* asociada al proyecto en *Travis-CI*
       - `More options>Settings>Environment Variables`
    - Configurar *.travis.yml* con la conexión de *Sonar*
-      - `- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=<**organization**> -Dsonar.login=$SONAR`
-   - Realizar *Push* en *develop* y comprobar que se dispara *Sonar* adecuadamente
+      - `- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=<organization> -Dsonar.login=$SONAR`
+   - Realizar *push* en *develop* y comprobar que se dispara *Sonar* adecuadamente
       - `>git push origin develop`
 1. Conectar con Heroku
    - Crear una cuenta en *Heroku* <https://www.heroku.com>
    - Definir en el proyecto un API con los correspondientes Tests
    - Configurar para *Swagger (Springfox)* <https://github.com/miw-upm/template-spring5/blob/master/src/main/java/es/upm/miw/config/SwaggerConfig.java>
-   - Realizar *Push* en la rama *develop* y comprobar que todo es correcto
+   - Realizar *push* en la rama *develop* y comprobar que todo es correcto
       - `>git push origin develop`
    - Instalar *Heroku CLI* <https://devcenter.heroku.com/articles/heroku-cli#download-and-install>
    - Crear una cuenta en *Heroku* <https://www.heroku.com>
@@ -79,16 +79,19 @@
          -`provider: heroku`
          - `api_key:`
             - `secure: $HEROKU`
-   - Realizar *Push* en la rama master y comprobar que se despliega en *Heroku* adecuadamente
+   - Realizar *push* en la rama master y comprobar que se despliega en *Heroku* adecuadamente
       - `>git push origin master`
+   - Comprobar los logs de Heroku a través de consola
+      - `>heroku login`
+	  - `>heroku logs -app=myApp`
 1. Conectar con MongoDB
    - Instalar *Mongodb* y arrancar el motor <https://www.mongodb.com/download-center/community>
    - Crear un API con acceso a BD con los test correspondientes
    - Ejecutar en local para comprobar los test
    - Configurar el *.travis.yml* con el servicio de mongoDB
-      -`services:`
+      - `services:`
          - `- mongodb`
-   - Realizar *Push* en *develop* para comprobar que todo va bien
+   - Realizar *push* en *develop* para comprobar que todo va bien
       - `>git push origin develop`
    - Crear una cuenta en *mLab* <https://mlab.com>
    - Obtener la URI de una base de datos
@@ -98,7 +101,10 @@
       -`>project>Settings`
    - Configurar el fichero de propiedades con la uri de BD
       -`spring.data.mongodb.uri=${MONGODB_URI}`
-   - Realizar *Push* en la rama *master* y comprobar que se despliega en *Heroku* adecuadamente con acceso a BD
-
+   - Realizar *push* en la rama *master* y comprobar que se despliega en *Heroku* adecuadamente con acceso a BD
+      - `>git push origin master`
+   - Comprobar los logs de Heroku a través de consola
+      - `>heroku login`
+	  - `>heroku logs -app=myApp`
 ###### Autor: Jesús Bernal Bermúdez U.P.M.
 
