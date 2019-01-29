@@ -3,8 +3,9 @@ jdk:
 - oraclejdk8
 branches:
   only:
-  - master
   - develop
+  - /^release-.*$/
+  - master
 notifications:
   email:
     recipients:
@@ -22,7 +23,9 @@ deploy:
   provider: heroku
   api_key:
     secure: $HEROKU
-# app: template-spring5
+  on:
+    branch: master
+# app: template-spring5  #OJO, sin no se pone, se toma por defecto los nombre de GitHub: cuenta:proyecto
 # on:
 #   repo: miw-upm/template-spring5
 #   branch: master
