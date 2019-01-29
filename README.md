@@ -48,16 +48,16 @@
 1. Conectar con *Travis-CI*
    - Crear una cuenta en Travis-CI <https://travis-ci.org>
    - Activa el seguimiento del repositorio de *GitHub*
-      - `>My Account>Settings`
+      - `-> My Account>Settings`
    - Configurar el fichero *.travis.yml*
    - Realizar *push* de la rama *develop* y comprobar que se ejecuta *Travis-CI*
       - `>git push origin develop`
 1. Conectar con Sonarcloud
    - Crear una cuenta en *Sonarcloud* <https://sonarcloud.io>
    - Obtener el *ApiKey* de *Sonarcloud*
-      - `>My Account>Security`
+      - `-> My Account>Security`
    - Definir una variable de entorno: *SONAR-ApiKey* asociada al proyecto en *Travis-CI*
-      - `>More options>Settings>Environment Variables`
+      - `-> More options>Settings>Environment Variables`
    - Configurar *.travis.yml* con la conexión de *Sonar*
       - `- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=<organization> -Dsonar.login=$SONAR`
    - Realizar *push* en *develop* y comprobar que se dispara *Sonar* adecuadamente
@@ -71,12 +71,12 @@
    - Instalar *Heroku CLI* <https://devcenter.heroku.com/articles/heroku-cli#download-and-install>
    - Crear una cuenta en *Heroku* <https://www.heroku.com>
    - Obtener el *ApiKey* de *Heroku*
-      - `>Account settings>API Key`
+      - `-> Account settings>API Key`
    - Crear una variable de entorno: *HEROKU-ApiKey* asociada al proyecto en *Travis-CI*
-      - `>More options>Settings>Environment Variables`
+      - `-> More options>Settings>Environment Variables`
    - Configurar .travis.yml con el despliegue en Heroku
-      -`deploy:`
-         -`provider: heroku`
+      - `deploy:`
+         - `provider: heroku`
          - `api_key:`
             - `secure: $HEROKU`
    - Realizar *push* en la rama master y comprobar que se despliega en *Heroku* adecuadamente
@@ -93,14 +93,12 @@
          - `- mongodb`
    - Realizar *push* en *develop* para comprobar que todo va bien
       - `>git push origin develop`
-   - Crear una cuenta en *mLab* <https://mlab.com>
-   - Obtener la URI de una base de datos
-   - Añadir en *Heroku* un *add-ons* de *mLab*
-      -`>project>Overview`
-   - Crear una variable de entorno: *MONGODB_URI* asociada al proyecto en *Heroku*
-      -`>project>Settings`
+   - Añadir en *Heroku* un *add-ons* de *mLab*. Con ello se crean las BD y Heroku define automáticamente la variable de entorno *MONGODB_URI* con la uri de la BD
+      - `-> project>Overview`
+   - También, se podría crear una cuenta en *mLab* <https://mlab.com> y bbtener la URI de una base de datos. Para finalmente, crear una variable de entorno: *MONGODB_URI* asociada al proyecto en *Heroku*
+      - `-> project>Settings`
    - Configurar el fichero de propiedades con la uri de BD
-      -`spring.data.mongodb.uri=${MONGODB_URI}`
+      - `spring.data.mongodb.uri=${MONGODB_URI}`
    - Realizar *push* en la rama *master* y comprobar que se despliega en *Heroku* adecuadamente con acceso a BD
       - `>git push origin master`
    - Comprobar los logs de Heroku a través de consola
