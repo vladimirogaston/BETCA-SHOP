@@ -67,18 +67,12 @@ public class ShoppingCartControllerImpl implements ShoppingCartController {
 	}
 
 	private ArticleItemEntity makeValidItem(ArticleItemDto data) {
-		ArticleEntity article = articleDao.findById(data.getArticle().getId()).orElseThrow(NotFoundException::new);
-		
-		/**
-		 * 
-		 *TODO es importante añadir esta validación. La fecha se almacena en un formato diferente al que se crea... revisar eso 
-		 * if(!article.equals(data.getArticle().toEntity())) throw new BadRequestException(ADULTERED_BAD_REQUEST);
-		 */	
-
-		if(article.getStock() < data.getCount()) throw new BadRequestException(STOCK_BAD_REQUEST);
+		ArticleEntity stored = articleDao.findById(data.getArticle().getId()).orElseThrow(NotFoundException::new);
+		if(!stored.equals(data.getArticle().toEntity())) throw new BadRequestException(ADULTERED_BAD_REQUEST);
+		if(stored.getStock() < data.getCount()) throw new BadRequestException(STOCK_BAD_REQUEST);
 		ArticleItemEntity item = new ArticleItemEntity();
 		item.setCount(data.getCount());
-		item.setArticle(article);
+		item.setArticle(stored);
 		return item;
 	}
 

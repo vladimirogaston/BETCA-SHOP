@@ -8,6 +8,7 @@ import ar.ungs.shop.services.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,10 +19,14 @@ public class UsersControllerImpl implements UsersController {
 
     private JwtService jwtService;
 
-    public UsersControllerImpl() {
+    @Autowired
+    public UsersControllerImpl(UsersDao dao, JwtService service) {
+        usersDao = dao;
+        jwtService = service;
     }
 
-    public String getJwtToken(AuthUserDto credentials) {
+    @Override
+    public String auth(AuthUserDto credentials) {
         UserEntity entity = usersDao.findByName(credentials.getName());
         String token = "";
         if(entity.getPassword().equals(credentials.getPassword())) {
@@ -31,13 +36,14 @@ public class UsersControllerImpl implements UsersController {
         return token;
     }
 
-    @Autowired
-    public void setUsersDao(UsersDao dao) {
-        this.usersDao = dao;
-    }
-
-    @Autowired
-    public void setJwtService(JwtService jwtService) {
-        this.jwtService = jwtService;
+    @Override
+    public UserDto save(UserDto user) {
+        UserEntity target = new UserEntity();
+        target.setActive(user.isActive());
+        target.setRegistrationDate(new Date());
+        target.setName(user.getName());
+        target.setRoles(user.getRoles());
+        usersDao.saveAndFlush(target);
+        return new UserDto(target);
     }
 }

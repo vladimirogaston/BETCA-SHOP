@@ -1,8 +1,11 @@
 package ar.ungs.shop.bussines_controllers;
 
 import ar.ungs.shop.dtos.AuthUserDto;
+import ar.ungs.shop.dtos.UserDto;
 
 public interface UsersController {
 
-    public String getJwtToken(AuthUserDto credentials);
+    String auth(AuthUserDto credentials);
+
+    UserDto save(UserDto user);
 }

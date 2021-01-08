@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
+import ar.ungs.shop.entities.UserEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -21,24 +23,37 @@ public class UserDto implements Serializable {
 	
 	@JsonInclude(value = Include.NON_NULL)
 	private Integer id;
-	
-	@Max(value = 20)
+
+	@Size(max = 10, message = "Maximo 10 caracteres para el nombre de usuario")
 	@NotBlank
 	private String name;
 	
-	@Max(value = 20)
+	@Size(max = 10, message = "Maximo 10 caracteres para el password")
 	@NotBlank
 	private String password;
 	
-	@ListNotEmpty
+	@ListNotEmpty(message = "El usuario debe poseer un rol como mínimo")
 	private List<Role> roles;
 	
 	@JsonInclude(value = Include.NON_NULL)
 	private boolean active;
 
 	public UserDto() {
+		setId(null);
+		setRoles(null);
+		setPassword(null);
+		setName(null);
+		setActive(true);
 	}
-	
+
+	public UserDto(UserEntity entity) {
+		setId(entity.getId());
+		setPassword(entity.getPassword());
+		setName(entity.getName());
+		setActive(entity.isActive());
+		setRoles(entity.getRoles());
+	}
+
 	public Integer getId() {
 		return id;
 	}

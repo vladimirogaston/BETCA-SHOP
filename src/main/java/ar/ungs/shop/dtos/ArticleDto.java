@@ -1,11 +1,10 @@
 package ar.ungs.shop.dtos;
 
+import ar.ungs.shop.entities.ArticleEntity;
+
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotBlank;
-import ar.ungs.shop.entities.ArticleEntity;
 
 public class ArticleDto implements Serializable {
 
@@ -46,14 +45,14 @@ public class ArticleDto implements Serializable {
 
 	public ArticleEntity toEntity() {
 		ArticleEntity entity = new ArticleEntity();
-		entity.setId(id);
-		entity.setBarcode(barcode);
-		entity.setDescription(description);
-		entity.setPrice(price);
-		entity.setProvider(provider);
-		entity.setStock(stock);
-		entity.setRegistrationDate(registrationDate);
-		entity.setDiscontinued(discontinued);
+		entity.setId(getId());
+		entity.setBarcode(getBarcode());
+		entity.setDescription(getDescription());
+		entity.setPrice(getPrice());
+		entity.setProvider(getProvider());
+		entity.setStock(getStock());
+		entity.setRegistrationDate(getRegistrationDate());
+		entity.setDiscontinued(isDiscontinued());
 		return entity;
 	}
 	

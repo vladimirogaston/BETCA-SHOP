@@ -44,6 +44,11 @@ public class DatabaseSeederServiceImpl implements DatabaseSeederService {
 		}
 	}
 
+	private void cleanDatabase() {
+		this.usersDao.deleteAll();
+		this.articlesDao.deleteAll();
+	}
+
 	private DatabaseGraph loadDatabaseGraph() {
 		DatabaseGraph graph = null;
 		try {

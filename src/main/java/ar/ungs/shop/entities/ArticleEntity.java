@@ -42,6 +42,7 @@ public class ArticleEntity {
 		setRegistrationDate(null);
 		setPrice(null);
 		setProvider(null);
+		setStock(null);
 		this.setDiscontinued(false);
 	}
 	
@@ -155,11 +156,6 @@ public class ArticleEntity {
 			if (other.provider != null)
 				return false;
 		} else if (!provider.equals(other.provider))
-			return false;
-		if (registrationDate == null) {
-			if (other.registrationDate != null)
-				return false;
-		} else if (!registrationDate.equals(other.registrationDate))
 			return false;
 		if (stock == null) {
 			if (other.stock != null)
