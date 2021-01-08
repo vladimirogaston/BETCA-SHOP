@@ -1,0 +1,35 @@
+users:
+  - name: u001
+    password: pu001
+    roles:
+      - ADMIN
+    registrationDate: 2020-12-03
+    active: true
+  - name: u002
+    password: pu002
+    roles:
+      - OPERATOR
+    registrationDate: 2020-12-01
+    active: true
+  - name: u003
+    password: pu003
+    roles:
+      - CUSTOMER
+    registrationDate: 2019-03-03
+    active: true
+
+articles:
+  - barcode: 123321
+    description: article001
+    registrationDate: 2020-10-10
+    stock: 10
+    price: 12.45
+    provider: provider001
+    discontinued: false
+  - barcode: 123322
+    description: article002
+    registrationDate: 2020-10-10
+    stock: 10
+    price: 12.45
+    provider: provider001
+    discontinued: false
