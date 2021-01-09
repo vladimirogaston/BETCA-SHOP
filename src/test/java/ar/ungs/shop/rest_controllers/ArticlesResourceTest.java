@@ -3,7 +3,6 @@ package ar.ungs.shop.rest_controllers;
 import ar.ungs.shop.dtos.ArticleDto;
 import ar.ungs.shop.services.DatabaseSeederService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import es.upm.miw.rest_controllers.RestBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,12 +47,12 @@ class ArticlesResourceTest {
 
 	@Test
 	void testSecurity() {
-		ArticleDto ret = new RestBuilder<ArticleDto>(port)
+		Assertions.assertThrows(HttpClientErrorException.class, ()-> new RestBuilder<ArticleDto>(port)
 				.clazz(ArticleDto.class)
 				.path(ArticlesResource.ARTICLES)
 				.basicAuth("u001", "pu001")
-				.body(makeTestDto()).post().build();
-		Assertions.assertNotNull(ret);
+				.body(makeTestDto()).post().build()
+		);
 	}
 
 	private ArticleDto makeTestDto() {

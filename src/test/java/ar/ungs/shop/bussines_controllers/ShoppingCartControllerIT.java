@@ -1,5 +1,7 @@
 package ar.ungs.shop.bussines_controllers;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,7 +20,6 @@ import ar.ungs.shop.entities.ArticleItemEntity;
 import ar.ungs.shop.repositories.ArticleDao;
 import ar.ungs.shop.bussines_controllers.ShoppingCartControllerImpl;
 
-@Profile("qa")
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class ShoppingCartControllerIT {
@@ -52,5 +53,13 @@ class ShoppingCartControllerIT {
 		Integer oldStock = article.getStock();
 		Integer newStock = articlesDao.findById(article.getId()).get().getStock();
 		Assertions.assertTrue(oldStock > newStock);
+	}
+
+	private void excecuteTest(ArticleItemDto dto) throws NoSuchMethodException, SecurityException {
+		Method method = controller.getClass().getDeclaredMethod("makeValidItem", new Class[] {ArticleItemDto.class});
+		method.setAccessible(true);
+		Assertions.assertThrows(InvocationTargetException.class, ()->{
+			method.invoke(controller, dto);
+		});
 	}
 }

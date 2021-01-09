@@ -1,4 +1,4 @@
-package es.upm.miw;
+package ar.ungs.shop;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
