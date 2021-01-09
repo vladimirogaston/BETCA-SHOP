@@ -28,6 +28,7 @@ class ArticlesResourceTest {
 
 	@BeforeEach
 	public void setUp() {
+		seeder.clearDatabase();
 		seeder.seedDatabase();
 	}
 

@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import ar.ungs.shop.dtos.ArticleItemDto;
@@ -19,6 +20,7 @@ import ar.ungs.shop.entities.ArticleItemEntity;
 import ar.ungs.shop.repositories.ArticleDao;
 import ar.ungs.shop.repositories.ShoppingCartDao;
 
+@Profile("qa")
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class ShoppingCartControllerTest {

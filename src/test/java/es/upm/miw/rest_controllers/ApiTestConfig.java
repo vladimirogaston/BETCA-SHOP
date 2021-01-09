@@ -17,8 +17,8 @@ import java.lang.annotation.Target;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(locations = "classpath:test.properties")
-@ActiveProfiles("dev")
+@TestPropertySource(locations = "classpath:application-qa.properties")
+@ActiveProfiles("qa")
 @Tag("api")
 public @interface ApiTestConfig {
 }

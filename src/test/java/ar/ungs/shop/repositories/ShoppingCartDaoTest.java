@@ -13,7 +13,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import ar.ungs.shop.entities.ArticleEntity;
 import ar.ungs.shop.entities.ArticleItemEntity;
 import ar.ungs.shop.entities.ShoppingCartEntity;
+import org.springframework.context.annotation.Profile;
 
+@Profile("qa")
 @DataJpaTest
 class ShoppingCartDaoTest {
 

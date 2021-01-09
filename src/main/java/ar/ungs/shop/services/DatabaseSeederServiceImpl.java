@@ -44,7 +44,8 @@ public class DatabaseSeederServiceImpl implements DatabaseSeederService {
 		}
 	}
 
-	private void cleanDatabase() {
+	@Override
+	public void clearDatabase() {
 		this.usersDao.deleteAll();
 		this.articlesDao.deleteAll();
 	}
