@@ -9,22 +9,22 @@ branches:
 notifications:
   email:
     recipients:
-    - j.bernal@upm.es
+    - vladimirogaston@gmail.com
 services:
-  - mongodb
+  - mysql
 script:
 - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify # Test unitarios y de integracion con covertura
 
 # Subir a sonarcloud
-- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR
+- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=vladimirogaston -Dsonar.login=$SONAR
 
 # https://template-spring5.herokuapp.com/swagger-ui.html
-deploy:
-  provider: heroku
-  api_key:
-    secure: $HEROKU
-  on:
-    branch: master
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: $HEROKU
+#  on:
+#    branch: master
 # app: template-spring5  #OJO, sin no se pone, se toma por defecto los nombre de GitHub: cuenta:proyecto
 # on:
 #   repo: miw-upm/template-spring5
